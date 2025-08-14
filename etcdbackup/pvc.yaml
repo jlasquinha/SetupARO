@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: etcd-backup-pvc
+  namespace: openshift-etcd
+spec:
+  accessModes:
+    - azurefile-csi
+  resources:
+    requests:
+      storage: 200Gi 
+  volumeMode: Filesystem
+  storageClassName: azurefile-csi
