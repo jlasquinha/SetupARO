@@ -1,0 +1,19 @@
+apiVersion: tuned.openshift.io/v1
+kind: Tuned
+metadata:
+  name: openshift-sysctl
+  namespace: openshift-cluster-node-tuning-operator
+spec:
+  profile:
+  - data: |
+      [main]
+      summary=Set net.core.somaxconn
+      include=openshift-node
+      [sysctl]
+      net.core.somaxconn = 8192
+    name: openshift-sysctl
+  recommend:
+  - match:
+    - label: node-role.kubernetes.io/worker
+    priority: 30
+    profile: openshift-sysctl
