@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-etcd
 spec:
   accessModes:
-    - azurefile-csi
+    - ReadWriteMany
   resources:
     requests:
       storage: 200Gi 
